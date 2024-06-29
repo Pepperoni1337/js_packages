@@ -32,7 +32,7 @@ class Grid {
         this.cols = cols;
         this.cellSize = cellSize;
         this.container = document.getElementById(containerId);
-        this.cells = this.createTable();
+        this.cells = this.createGrid();
     }
 
     createGrid() {
