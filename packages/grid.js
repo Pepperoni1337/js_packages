@@ -74,5 +74,3 @@ class Grid {
         console.error("Invalid cell position");
     }
 }
-
-export { Cell, Grid };
