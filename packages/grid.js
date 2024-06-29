@@ -59,6 +59,8 @@ class Grid {
     setCellColor(row, col, color) {
         if (row < this.rows && col < this.cols) {
             this.cells[row][col].setBackgroundColor(color);
+
+            return;
         }
 
         console.error("Invalid cell position");
