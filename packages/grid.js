@@ -10,7 +10,9 @@ class Cell {
         const cell = document.createElement('div');
         cell.style.width = `${this.size}px`;
         cell.style.height = `${this.size}px`;
+        cell.style.backgroundColor = 'white';
         cell.style.border = '1px solid black';
+        cell.style.border = 'none';
         cell.style.boxSizing = 'border-box';
         cell.dataset.row = this.row;
         cell.dataset.col = this.col;
@@ -69,6 +71,22 @@ class Grid {
     getCellColor(row, col) {
         if (row < this.rows && col < this.cols) {
             return this.cells[row][col].getBackgroundColor();
+        }
+
+        console.error("Invalid cell position");
+    }
+
+    getRowCount() {
+        return this.rows;
+    }
+
+    getColCount() {
+        return this.cols;
+    }
+    setCellValue(row, col, value) {
+        if (row < this.rows && col < this.cols) {
+            this.cells[row][col].element.innerHTML = value;
+            return;
         }
 
         console.error("Invalid cell position");
