@@ -1,6 +1,6 @@
 class CellRenderer  {
     constructor() {
-        this.cellSize = 30;
+        this.cellSize = 40;
     }
 
     render(cellObject, containerElement) {

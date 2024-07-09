@@ -95,4 +95,36 @@ class Grid {
 
         console.error("Invalid cell position");
     }
+
+    applyValueFunction(func) {
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.cols; col++) {
+                this.cells[row][col].value = func(row,col);
+            }
+        }
+    }
+
+    applyShowValueFunction(func) {
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.cols; col++) {
+                this.cells[row][col].show = func(row,col);
+            }
+        }
+    }
+
+    applyHightlghtedFunction(func) {
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.cols; col++) {
+                this.cells[row][col].hightlited = func(row,col);
+            }
+        }
+    }
+
+    applyStateFunction(func) {
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.cols; col++) {
+                this.cells[row][col].state = func(row,col);
+            }
+        }
+    }
 }
