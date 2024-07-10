@@ -15,20 +15,20 @@ class CellRenderer  {
         cell.style.color = this.resolveColor(cellObject);
         cell.style.border = '1px dotted ' + this.resolveBorderColor(cellObject);
         cell.style.boxSizing = 'border-box';
-        cell.innerHTML = cellObject.show ? cellObject.value : '';
+        cell.innerHTML = cellObject.showValue ? cellObject.value : '';
         containerElement.appendChild(cell);
         cellObject.element = cell;
     }
 
     resolveBackgroundColor(cellObject) {
         if (cellObject.state === 0) {
-            if (cellObject.hightlited) {
+            if (cellObject.highlighted) {
                 return 'lightGreen';
             } else {
                 return 'white';
             }
         } else {
-            if (cellObject.hightlited) {
+            if (cellObject.highlighted) {
                 return 'darkGreen';
             } else {
                 return 'lightgray';
@@ -38,13 +38,13 @@ class CellRenderer  {
 
     resolveColor(cellObject) {
         if (cellObject.state === 0) {
-            if (cellObject.hightlited) {
+            if (cellObject.highlighted) {
                 return 'blakc';
             } else {
                 return 'blakc';
             }
         } else {
-            if (cellObject.hightlited) {
+            if (cellObject.highlighted) {
                 return 'white';
             } else {
                 return 'blakc';

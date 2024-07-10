@@ -64,7 +64,7 @@ class Grid {
 
     setHighlighted(row, col, highlighted) {
         if (row < this.rows && col < this.cols) {
-            this.cells[row][col].hightlited = highlighted;
+            this.cells[row][col].highlighted = highlighted;
             return;
         }
 
@@ -73,7 +73,7 @@ class Grid {
 
     getCellHighlighted(row, col) {
         if (row < this.rows && col < this.cols) {
-            return this.cells[row][col].hightlited;
+            return this.cells[row][col].highlighted;
         }
 
         console.error("Invalid cell position");
@@ -81,7 +81,7 @@ class Grid {
 
     setCellShowValue(row, col, show) {
         if (row < this.rows && col < this.cols) {
-            this.cells[row][col].show = show;
+            this.cells[row][col].showValue = show;
             return;
         }
 
@@ -90,7 +90,7 @@ class Grid {
 
     getCellShowValue(row, col) {
         if (row < this.rows && col < this.cols) {
-            return this.cells[row][col].show;
+            return this.cells[row][col].showValue;
         }
 
         console.error("Invalid cell position");
@@ -107,15 +107,15 @@ class Grid {
     applyShowValueFunction(func) {
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.cols; col++) {
-                this.cells[row][col].show = func(row,col);
+                this.cells[row][col].showValue = func(row,col);
             }
         }
     }
 
-    applyHightlghtedFunction(func) {
+    applyHighlightedFunction(func) {
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.cols; col++) {
-                this.cells[row][col].hightlited = func(row,col);
+                this.cells[row][col].highlighted = func(row,col);
             }
         }
     }
