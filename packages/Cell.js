@@ -8,12 +8,4 @@ class Cell {
         this.value = 0;
         this.element = null;
     }
-
-    setBackgroundColor(color) {
-        this.element.style.backgroundColor = color;
-    }
-
-    getBackgroundColor() {
-        return this.element.style.backgroundColor;
-    }
 }
