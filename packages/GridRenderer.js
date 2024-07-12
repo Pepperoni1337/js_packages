@@ -5,14 +5,18 @@ class GridRenderer {
     }
 
     render(grid, containerElement) {
-        for (let i = 0; i < grid.rows; i++) {
-            let rowElement = document.createElement('div');
+        let rows = grid.getRows();
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const rowElement = document.createElement('div');
+            rowElement.className = 'row';
             rowElement.style.display = 'flex';
-            for (let j = 0; j < grid.cols; j++) {
-                const cell = grid.getCell(i, j);
+            containerElement.appendChild(rowElement);
+            const cells = row.getCells();
+            for (let j = 0; j < cells.length; j++) {
+                const cell = cells[j];
                 this.cellRenderer.render(cell, rowElement);
             }
-            containerElement.appendChild(rowElement);
         }
     }
 }
