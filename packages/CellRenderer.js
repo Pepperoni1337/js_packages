@@ -16,8 +16,13 @@ class CellRenderer  {
         cell.style.border = '1px dotted ' + this.resolveBorderColor(cellObject);
         cell.style.boxSizing = 'border-box';
         cell.innerHTML = cellObject.showValue ? cellObject.value : '';
+        cell.addEventListener('click', cellObject.onClickFuncttion());
         containerElement.appendChild(cell);
         cellObject.element = cell;
+    }
+
+    rerender(cellObject) {
+
     }
 
     resolveBackgroundColor(cellObject) {

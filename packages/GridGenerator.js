@@ -20,7 +20,7 @@ class GridGenerator {
         for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
             const row = new Row(grid, rowIndex);
             for (let colIndex = 0; colIndex < cols; colIndex++) {
-                let cell = new Cell(row, colIndex);
+                let cell = new Cell(row, colIndex-10);
                 cell.value = this.valueFunction(cell);
                 cell.showValue = this.showValueFunction(cell);
                 cell.highlighted = this.highlightedFunction(cell);
@@ -31,5 +31,12 @@ class GridGenerator {
         }
 
         return grid;
+    }
+
+    applySettings(settings) {
+        this.valueFunction = settings.valueFunction;
+        this.showValueFunction = settings.showValueFunction;
+        this.highlightedFunction = settings.highlightedFunction;
+        this.stateFunction = settings.stateFunction;
     }
 }

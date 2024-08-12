@@ -6,5 +6,10 @@ class Cell {
         this.highlighted = false;
         this.showValue = false;
         this.value = 0;
+        this.onClickFuncttion = function () {
+            return function () {
+                this.style.backgroundColor = 'red';
+            }
+        }
     }
 }
