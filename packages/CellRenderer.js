@@ -1,6 +1,6 @@
 class CellRenderer  {
     constructor() {
-        this.cellSize = 40;
+        this.cellSize = 5;
     }
 
     render(cellObject, containerElement) {
@@ -13,7 +13,7 @@ class CellRenderer  {
         cell.style.height = `${this.cellSize}px`;
         cell.style.backgroundColor = this.resolveBackgroundColor(cellObject);
         cell.style.color = this.resolveColor(cellObject);
-        cell.style.border = '1px dotted ' + this.resolveBorderColor(cellObject);
+        //cell.style.border = '1px dotted ' + this.resolveBorderColor(cellObject);
         cell.style.boxSizing = 'border-box';
         cell.innerHTML = cellObject.showValue ? cellObject.value : '';
         cell.addEventListener('click', cellObject.onClickFuncttion());
@@ -28,7 +28,7 @@ class CellRenderer  {
     resolveBackgroundColor(cellObject) {
         if (cellObject.state === 0) {
             if (cellObject.highlighted) {
-                return 'lightGreen';
+                return 'red';
             } else {
                 return 'white';
             }

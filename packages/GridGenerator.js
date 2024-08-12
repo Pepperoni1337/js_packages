@@ -12,6 +12,7 @@ class GridGenerator {
         this.stateFunction = function (cell) {
             return (cell.row.id + cell.id) % 2 === 0 ? 1 : 0;
         }
+        this.offset = 200;
     }
 
     createGrid(rows, cols) {
@@ -20,7 +21,7 @@ class GridGenerator {
         for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
             const row = new Row(grid, rowIndex);
             for (let colIndex = 0; colIndex < cols; colIndex++) {
-                let cell = new Cell(row, colIndex-10);
+                let cell = new Cell(row, colIndex-this.offset);
                 cell.value = this.valueFunction(cell);
                 cell.showValue = this.showValueFunction(cell);
                 cell.highlighted = this.highlightedFunction(cell);

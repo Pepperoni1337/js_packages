@@ -1,4 +1,4 @@
-class PrimeSquaresSettings {
+class PrimeTestModuloSettings {
     constructor() {
         this.generatorSettings = new GridGeneratorSettings(
             function (cell) {
@@ -9,7 +9,11 @@ class PrimeSquaresSettings {
                     return rowId + 1;
                 }
 
-                return cellId;
+                if (rowId === 0) {
+                    return (cellId*cellId+cellId-1)*(cellId*cellId+cellId+1);
+                }
+
+                return (cellId*cellId+cellId-1)*(cellId*cellId+cellId+1) % (rowId + 1);
             },
             function (cell) {
                 const rowId = cell.row.id;
@@ -19,24 +23,24 @@ class PrimeSquaresSettings {
                     return true;
                 }
 
-                return PeppeMath.squares(rowId, cellId);
+                return cellId < rowId + 1;
 
 
             },
             function (cell) {
-                return PeppeMath.squares(cell.row.id, cell.id);
+                return cell.value === 0;
 
 
             },
             function (cell) {
-                if (PeppeMath.resolvePrime(cell.row.id+2,cell.id)) {
+                if (cell.id === 0){
                     return 1;
                 }
 
                 return 0;
             }
         );
-        this.renderSettings = new GridRendererSettings(
+        this.rendererSettings = new GridRendererSettings(
             20,
         );
     }

@@ -19,5 +19,9 @@ class PeppeMath {
       return true;
   }
 
+    static isPrime(number) {
+        return this.resolvePrime(Math.floor(Math.sqrt(number)),number);
+    }
+
 
 }
